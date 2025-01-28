@@ -39,7 +39,7 @@ if __name__ == "__main__":
     result = get_account_statement()
     if result:
         try:
-            with open('C:\\Infosys_Springboard_Internship\\Data\\statement.json','w') as json_file:
+            with open(r'C:\BFSI_OCR\data\statement.json','w') as json_file:
                 json.dump(result,json_file,indent=4)
         except requests.exceptions.RequestException as e:
             print(f"Error making request: {e}")  
