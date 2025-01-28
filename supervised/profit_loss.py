@@ -19,6 +19,8 @@ from PIL import Image
 from typing import Dict, Tuple  
 import os
 
+pytesseract.pytesseract.tesseract_cmd = r'C:\Tesseract-OCR\tesseract.exe'
+
 # Process the image
 def process_image(image_file) -> Tuple[Dict[str, float], BytesIO, BytesIO]:
     # Read the uploaded image directly from the UploadedFile object
