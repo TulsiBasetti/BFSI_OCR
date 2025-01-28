@@ -18,7 +18,7 @@ from typing import Dict
 from io import BytesIO
 import pandas as pd
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
 
 # Preprocess image for OCR
 def preprocess_image(image_path: str) -> np.ndarray:

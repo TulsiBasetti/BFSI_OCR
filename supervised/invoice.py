@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import os
 import sys
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Tesseract-OCR\tesseract.exe'
+pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
 
 def extract_invoice_data(image_path):
     img = cv2.imread(image_path)
