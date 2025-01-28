@@ -43,7 +43,7 @@ def perform_clustering_and_visualize(data):
 
     # Bar Graph of Transactions Count per Cluster
     plt.figure(figsize=(10, 6))
-    sns.countplot(data=df, x='Cluster_KMeans_Mapped', hue='Cluster_KMeans_Mapped', palette=["orange", "yellow", "green"], legend=False)
+    sns.countplot(data=df, x='Cluster_KMeans_Mapped', hue='Cluster_KMeans_Mapped', palette=["orange", "yellow", "green"])
     
     # Add titles and labels for bar graph
     plt.title('Transaction Count per Cluster', fontsize=16)
