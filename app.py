@@ -74,7 +74,7 @@ else:
         # Call function to generate the API visualization
         img_base64 = plot_payment_mode_distribution()
         # Display image in Streamlit frontend
-        st.image(f"data:image/png;base64,{img_base64}", use_container_width=True)
+        st.image(f"data:image/png;base64,{img_base64}")
 
     elif uploaded_file is not None:
         if doc_type in ["Payslip", "Profit & Loss", "Invoice"]:
