@@ -16,9 +16,17 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import platform
 import sys
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\\Tesseract-OCR\\tesseract.exe"
+# pytesseract.pytesseract.tesseract_cmd = r"C:\\Tesseract-OCR\\tesseract.exe"
+
+# Set Tesseract path dynamically based on the OS
+if platform.system() == 'Windows':
+    pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+else:
+    # For Linux/Streamlit Cloud environment
+    pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 def extract_invoice_data(image_path):
     img = cv2.imread(image_path)
