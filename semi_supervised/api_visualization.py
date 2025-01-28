@@ -18,8 +18,7 @@ import base64
 def plot_payment_mode_distribution():
     current_dir = os.path.dirname(os.path.abspath(__file__))  
     # csv_file_path = os.path.join(current_dir, r"C:\BFSI_OCR\data\api_data.csv")  
-    csv_file_path = os.path.join(current_dir, "data", "api_data.csv")
-
+    csv_file_path = os.path.join(current_dir, "..", "data", "api_data.csv")
     try:
         df = pd.read_csv(csv_file_path)  # Load the CSV file
     except FileNotFoundError as e:
