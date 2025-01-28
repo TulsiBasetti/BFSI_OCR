@@ -18,8 +18,14 @@ from io import BytesIO
 from PIL import Image
 from typing import Dict, Tuple  
 import os
+import platform
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+if platform.system() == 'Windows':
+    pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+else:
+    # For Linux/Streamlit Cloud environment
+    pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 # Process the image
 def process_image(image_file) -> Tuple[Dict[str, float], BytesIO, BytesIO]:

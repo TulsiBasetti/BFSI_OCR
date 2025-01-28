@@ -17,8 +17,15 @@ import matplotlib.pyplot as plt
 from typing import Dict
 from io import BytesIO
 import pandas as pd
+import platform
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+
+if platform.system() == 'Windows':
+    pytesseract.pytesseract.tesseract_cmd = r'C:\\Tesseract-OCR\\tesseract.exe'
+else:
+    # For Linux/Streamlit Cloud environment
+    pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
 # Preprocess image for OCR
 def preprocess_image(image_path: str) -> np.ndarray:

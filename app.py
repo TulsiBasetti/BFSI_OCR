@@ -94,11 +94,11 @@ else:
 
                 # Display the Bar Chart
                 st.subheader("Earnings Distribution (Bar Chart):")
-                st.image(bar_chart, caption="Bar Chart", use_container_width=True)
+                st.image(bar_chart, caption="Bar Chart")
 
                 # Display the Pie Chart
                 st.subheader("Earnings Distribution (Pie Chart):")
-                st.image(pie_chart, caption="Pie Chart", use_container_width=True)
+                st.image(pie_chart, caption="Pie Chart")
 
             elif doc_type == "Profit & Loss":
                 # Process the Profit & Loss image
@@ -110,11 +110,11 @@ else:
 
                 # Display the Pie Chart
                 st.subheader("Business Expenses (Pie Chart):")
-                st.image(pie_chart, caption="Pie Chart", use_container_width=True)
+                st.image(pie_chart, caption="Pie Chart")
 
                 # Display the Bar Chart
                 st.subheader("Business Expenses (Bar Chart):")
-                st.image(bar_chart, caption="Bar Chart", use_container_width=True)
+                st.image(bar_chart, caption="Bar Chart")
 
             elif doc_type == "Invoice":
                 # Process the uploaded invoice image
