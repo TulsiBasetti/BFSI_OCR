@@ -106,8 +106,9 @@ def visualize_earnings(earnings: Dict[str, float]) -> BytesIO:
     colors = ['#FF9999', '#66B3FF', 'purple', '#FFCC99', '#FF6347', '#32CD32', '#FFD700', '#8A2BE2', '#FF4500', '#ADFF2F']
 
     # Bar Chart
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(8, 6))
     plt.bar(earnings.keys(), [earnings[key] for key in earnings], color='#ff9800')
+    plt.xticks(rotation=45, ha='right', rotation_mode='anchor')
     plt.xlabel('Categories')
     plt.ylabel('Amount')
     plt.title('Earnings Distribution',fontsize=16)
@@ -116,6 +117,7 @@ def visualize_earnings(earnings: Dict[str, float]) -> BytesIO:
     img_buf = BytesIO()
     plt.savefig(img_buf, format='png')
     img_buf.seek(0)
+    plt.close()
     
     # Pie Chart
     plt.figure(figsize=(6, 6))

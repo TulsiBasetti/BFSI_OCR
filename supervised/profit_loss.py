@@ -92,6 +92,7 @@ def create_visualizations(df: pd.DataFrame) -> Tuple[BytesIO, BytesIO]:
     plt.title("Allowable Business Expenses",fontsize=16)
     plt.savefig(pie_buf, format='png')
     pie_buf.seek(0)# Reset buffer position to the beginning
+    plt.close()
 
     # Plot Bar Chart
     bar_buf = BytesIO()
