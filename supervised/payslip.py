@@ -103,11 +103,19 @@ def visualize_earnings(earnings: Dict[str, float]) -> BytesIO:
     categories = [category for category in custom_order if category in earnings] + [category for category in earnings.keys() if category not in custom_order]
     amounts = [earnings.get(category, 0.0) for category in categories]
     
-    colors = ['#FF9999', '#66B3FF', 'purple', '#FFCC99', '#FF6347', '#32CD32', '#FFD700', '#8A2BE2', '#FF4500', '#ADFF2F']
+    colors = [
+        '#2E5A4E',  # Deep Forest Green
+        '#437C6F',  # Medium Sea Green
+        '#598C75',  # Sage Green
+        '#68A691',  # Jade Green
+        '#437C6F',  # Sea Green
+        '#79B5A3',  # Laurel Green
+        '#8FC3B5'   # Celadon Green
+    ]
 
     # Bar Chart
     plt.figure(figsize=(8, 6))
-    plt.bar(earnings.keys(), [earnings[key] for key in earnings], color='#ff9800')
+    plt.bar(earnings.keys(), [earnings[key] for key in earnings], color=colors)
     plt.xticks(rotation=45, ha='right', rotation_mode='anchor')
     plt.xlabel('Categories')
     plt.ylabel('Amount')

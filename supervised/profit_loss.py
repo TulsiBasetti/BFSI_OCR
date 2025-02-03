@@ -85,10 +85,20 @@ def extract_expenses(ocr_text: str) -> pd.DataFrame:
 
 # Create pie and bar charts and return them as image buffers
 def create_visualizations(df: pd.DataFrame) -> Tuple[BytesIO, BytesIO]:
+    
+    colors = [
+        '#2E5A4E',  # Deep Forest Green
+        '#437C6F',  # Medium Sea Green
+        '#598C75',  # Sage Green
+        '#6B4423',  # Deep Brown
+        '#8B6B4F',  # Medium Brown
+        '#A47551',  # Light Brown
+        '#C49A6C'   # Pale Brown
+    ]
     # Plot Pie Chart
     pie_buf = BytesIO()
     plt.figure(figsize=(8, 8))
-    plt.pie(df["Amount"], labels=df["Allowable Business Expenses"], autopct="%1.1f%%", startangle=140)
+    plt.pie(df["Amount"], labels=df["Allowable Business Expenses"], autopct="%1.1f%%", startangle=140,colors=colors)
     plt.title("Allowable Business Expenses",fontsize=16)
     plt.savefig(pie_buf, format='png')
     pie_buf.seek(0)# Reset buffer position to the beginning
@@ -97,7 +107,7 @@ def create_visualizations(df: pd.DataFrame) -> Tuple[BytesIO, BytesIO]:
     # Plot Bar Chart
     bar_buf = BytesIO()
     plt.figure(figsize=(8, 6)) 
-    plt.bar(df["Allowable Business Expenses"], df["Amount"], color="#ff9800")
+    plt.bar(df["Allowable Business Expenses"], df["Amount"], color=colors[:len(df)])
     plt.xticks(rotation=45, ha='right', rotation_mode='anchor')  
     plt.tight_layout(pad=4.0)  
     plt.xlabel("Expense Categories", labelpad=15) 

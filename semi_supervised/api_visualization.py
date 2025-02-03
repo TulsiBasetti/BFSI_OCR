@@ -10,7 +10,7 @@ Payment Mode Distribution Visualization
 
 
 import os
-import pandas as pd
+import pandas as pd 
 import matplotlib.pyplot as plt
 import io
 import base64
@@ -31,9 +31,19 @@ def plot_payment_mode_distribution():
      # Sum of amount for each payment mode
     payment_amounts = df.groupby("paymentMode")["amount"].sum() 
 
+    colors = [
+        '#2E5A4E',  # Deep Forest Green
+        '#437C6F',  # Medium Sea Green
+        '#598C75',  # Sage Green
+        '#6B4423',  # Deep Brown
+        '#8B6B4F',  # Medium Brown
+        '#A47551',  # Light Brown
+        '#C49A6C'   # Pale Brown
+    ]
+
     # Pie chart for Payment Mode Distribution by Amount
     fig, ax = plt.subplots(figsize=(7, 7))
-    ax.pie(payment_amounts, labels=payment_amounts.index, autopct="%1.1f%%", colors=["#FFC107", "#28A745", "#007BFF"])
+    ax.pie(payment_amounts, labels=payment_amounts.index, autopct="%1.1f%%", colors=colors)
     ax.set_title("Payment Mode Distribution by Amount",fontsize=16)
     # Save to a BytesIO object
     img_stream = io.BytesIO()

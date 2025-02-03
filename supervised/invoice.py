@@ -53,6 +53,16 @@ def extract_invoice_data(image_path):
     return df
 
 def generate_visualizations(df):
+
+    colors = [
+        '#2E5A4E',  # Deep Forest Green
+        '#437C6F',  # Medium Sea Green
+        '#598C75',  # Sage Green
+        '#6B4423',  # Deep Brown
+        '#8B6B4F',  # Medium Brown
+        '#A47551',  # Light Brown
+        '#C49A6C'   # Pale Brown
+    ]
     # Convert columns to numeric, forcing errors to NaN
     df["Qty"] = pd.to_numeric(df["Qty"], errors='coerce')
     df["Total"] = pd.to_numeric(df["Total"], errors='coerce')
@@ -64,7 +74,7 @@ def generate_visualizations(df):
 
     # Bar Chart
     fig_bar, ax_bar = plt.subplots(figsize=(8, 5))
-    ax_bar.bar(df["Description"], df["Total"], color='#ffeb3b') 
+    ax_bar.bar(df["Description"], df["Total"], color=colors[:len(df)]) 
     plt.xticks(rotation=0, ha='right')
     plt.ylabel("Total Price")
     plt.title("Invoice (Bar Chart)",fontsize=16)
@@ -72,7 +82,7 @@ def generate_visualizations(df):
     
     # Line Chart
     fig_line, ax_line = plt.subplots(figsize=(8, 5))
-    ax_line.plot(df["Description"], df["Total"], marker='o', linestyle='-', color='red')
+    ax_line.plot(df["Description"], df["Total"], marker='o', linestyle='-', color='#598C75')
     plt.xticks(rotation=0, ha='right')
     plt.ylabel("Total Price")
     plt.title("Invoice (Line Chart)",fontsize=16)
@@ -82,7 +92,7 @@ def generate_visualizations(df):
     fig_pie, ax_pie = plt.subplots(figsize=(8, 8))
     if df["Total"].sum() > 0:
         ax_pie.pie(df["Total"], labels=df["Description"], autopct='%1.1f%%',
-                   colors=['#ff9800', '#f44336', '#ffeb3b', '#9c27b0', '#673ab7'])
+                   colors=colors)
         plt.title("Invoice (Pie Chart)",fontsize=16)
         plt.tight_layout()
     else:

@@ -43,7 +43,7 @@ def perform_clustering_and_visualize(data):
 
     # Bar Graph of Transactions Count per Cluster
     plt.figure(figsize=(10, 6))
-    sns.countplot(data=df, x='Cluster_KMeans_Mapped', hue='Cluster_KMeans_Mapped', palette=["orange", "yellow", "green"])
+    sns.countplot(data=df, x='Cluster_KMeans_Mapped', hue='Cluster_KMeans_Mapped', palette=['#598C75', "#68A691", "#437C6F"])
     
     # Add titles and labels for bar graph
     plt.title('Transaction Count per Cluster', fontsize=16)
@@ -69,7 +69,7 @@ def perform_clustering_and_visualize(data):
 
     # Plot the pie chart with the original style and tilt
     plt.figure(figsize=(8, 8))
-    plt.pie(cluster_counts, labels=labels, autopct='%1.1f%%', colors=["orange", "yellow", "green"], startangle=90)
+    plt.pie(cluster_counts, labels=labels, autopct='%1.1f%%', colors=['#598C75', "#68A691", "#437C6F"], startangle=90)
 
     # Add title in the center of pie chart
     plt.title('Cluster Distribution in Transactions', fontsize=16, weight='bold', loc='center')

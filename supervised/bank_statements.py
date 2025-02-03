@@ -86,6 +86,16 @@ def process_bank_statement(pdf_path, output_csv_path=r"C:\BFSI_OCR\data\Bank_tra
 
 # Function to visualize spending distribution by category
 def plot_category_spending(df):
+
+    colors = [
+        '#2E5A4E',  # Deep Forest Green
+        '#437C6F',  # Medium Sea Green
+        '#598C75',  # Sage Green
+        '#6B4423',  # Deep Brown
+        '#8B6B4F',  # Medium Brown
+        '#A47551',  # Light Brown
+        '#C49A6C'   # Pale Brown
+    ]
     # Clean the 'DR' and 'CR' columns by filling NaN with 0 and converting to numeric
     df["DR"] = pd.to_numeric(df["DR"], errors='coerce')
     df["CR"] = pd.to_numeric(df["CR"], errors='coerce')
@@ -102,9 +112,7 @@ def plot_category_spending(df):
     # Remove categories with zero or negative spending 
     category_totals = category_totals[category_totals > 0]
 
-    # Define color palette with distinct colors for all categories, including bank_fees
-    colors = ['#FF9999', '#66B3FF', 'purple', '#FFCC99', '#FF6347', '#32CD32', '#FFD700', '#8A2BE2', '#FF4500', '#ADFF2F']
-
+   
     # Plot the Pie Chart
     plt.figure(figsize=(8, 8))
     category_totals.plot(kind='pie', autopct='%1.1f%%', startangle=90, colors=colors)
@@ -129,7 +137,7 @@ def plot_category_spending(df):
 
     # Plot the Scatter Plot for Spending by Category
     plt.figure(figsize=(10, 6))
-    plt.scatter(category_totals.index, category_totals, color='purple', s=100)  # 's' defines the size of the points
+    plt.scatter(category_totals.index, category_totals, color='#6B4423', s=100)  # 's' defines the size of the points
     plt.title("Total Spending by Category (Scatter Plot)",fontsize=16)
     plt.xlabel("Category")
     plt.ylabel("Amount Spent")
